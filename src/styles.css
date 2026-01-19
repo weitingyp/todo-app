@@ -46,3 +46,32 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+#container{
+    box-sizing: border-box;
+    height: calc(100vh - 20px);
+    width: calc(100vw - 20px);
+    padding: 10px;
+    display: grid;
+    grid-template-areas: 
+        "app-title app-title"
+        "nav task-container"
+    ;
+    grid-template-columns: 120px 1fr;
+    grid-template-rows: 50px 1fr;
+    grid-gap: 10px;
+}
+
+#app-title{
+    grid-area: app-title;
+    font-weight: bold;
+    font-size: large;
+}
+
+#nav{
+    grid-area: nav;
+}
+
+#task-container{
+    grid-area: task-container;
+}
