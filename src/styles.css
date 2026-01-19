@@ -87,7 +87,7 @@ h1{
     font-size: 2rem;
 }
 
-h2{
+h2, .task-column{
     font-weight: bold;
     text-decoration: underline;
 }
