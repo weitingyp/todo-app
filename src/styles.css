@@ -74,4 +74,11 @@ table {
 
 #task-container{
     grid-area: task-container;
+    display: flex;
+    justify-content: space-around;
+}
+
+.task-column{
+    display: flex;
+    flex-direction: column;
 }
