@@ -38,11 +38,8 @@ for (const proj in initBoardDB){
 // load and display active project's tasks
 
 function renderProjTasks(proj){
-    console.log(`now rendering:`);
-    console.log(proj);
     for (const list of ["to-do", "doing", "done"]){
         for (const taskId in proj.taskList[list]){
-            console.log(taskId);
             taskColumns[list].appendChild(new TaskCard(proj.taskList[list][taskId]).getNode());
         }
     }
