@@ -25,4 +25,14 @@ class TaskCard{
     }
 }
 
-export {TaskCard};
+// Create dialog for creating a new project
+const projectDialog = document.createElement("dialog");
+projectDialog.innerHTML = `
+    <form id="create-proj-form">
+        <label for="form-proj-title">New project: </label>
+        <input type="text" id="form-proj-title" name="form-proj-title">
+        <input type="submit" name="submit">
+    </form>
+`;
+
+export {TaskCard, projectDialog};
