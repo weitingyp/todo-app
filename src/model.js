@@ -1,5 +1,10 @@
+function generateUniqueId() {
+    return `id_${Date.now()}_${Math.floor(Math.random() * 10000)}`;
+}
+
 class Task{
     constructor(projKey, title, dueDate, description = "", priority = "p4", status ="to do"){
+        this.id = generateUniqueId();
         this.projKey = projKey;
         this.title = title; 
         this.dueDate = dueDate; //in JavaScript Date object
@@ -20,7 +25,8 @@ class Project{
     }
 
     addTask(task){
-        this.taskList["to-do"].push(task);
+        const id = task.id;
+        this.taskList["to-do"].push({ id : task});
     }
 }
 
