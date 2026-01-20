@@ -9,14 +9,13 @@ class Task{
 }
 
 class Project{
-    #taskList = [];
-
     constructor(title){
         this.title = title;
+        this.taskList = [];
     }
 
     addTask(task){
-        this.#taskList.push(task);
+        this.taskList.push(task);
     }
 }
 
