@@ -115,3 +115,14 @@ h2, h3{
 .task-due-date{
     text-align: left;
 }
+
+#add-proj-btn{
+    border: 1px solid black;
+    padding: 5px;
+    margin: 0;
+    background-color: transparent;
+}
+
+#add-proj-btn:hover{
+    text-decoration: underline;
+}
