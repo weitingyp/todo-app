@@ -48,6 +48,27 @@ projectDialog.innerHTML = `
     </form>
 `;
 
+const taskDialog = document.createElement("dialog");
+taskDialog.id = "task-dialog";
+taskDialog.innerHTML = `
+    <form id="create-task-form">
+        <h3>Create Task</h3>
+        <label for="form-task-title">New task: </label>
+        <input type="text" id="form-task-title" name="form-task-title">
+        <label for="form-task-desc">Description</label>
+        <input type="text" id="form-task-desc" name="form-task-desc">
+        <label for="form-task-duedate">Due date</label>
+        <input type="date">
+        <label for="form-task-status">Status</label>
+        <select id="form-task-status" name="form-task-status">
+            <option value="to-do">to do</option>
+            <option value="doing">doing</option>
+            <option value="done">done</option>
+        </select>
+        <input type="submit">
+    </form>
+`;
+
 // Render a project's tasks
 const taskColumns = {
     "to-do": document.querySelector("#to-do"),
@@ -55,4 +76,4 @@ const taskColumns = {
     "done": document.querySelector("#done")
 }
 
-export {TaskCard, projectDialog, taskColumns};
+export {TaskCard, projectDialog, taskDialog, taskColumns};

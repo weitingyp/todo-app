@@ -1,5 +1,5 @@
 import { Task, Project, Db } from "./model.js";
-import { TaskCard, projectDialog, taskColumns } from "./view.js";
+import { TaskCard, projectDialog, taskDialog, taskColumns } from "./view.js";
 import "./styles.css";
 
 // INSTANTIATE BOARD WITH PROJECT LIST
@@ -73,3 +73,7 @@ createProjForm.addEventListener('submit', function(e) {
     this.reset();
     projectDialog.close();
 })
+
+// CREATE A NEW TASK
+document.querySelector("body").appendChild(taskDialog);
+taskDialog.showModal();

@@ -144,3 +144,10 @@ h2, h3{
 #add-proj-btn:hover, .nav-proj-title:hover{
     text-decoration: underline;
 }
+
+#create-task-form{
+    display: flex;
+    width: 300px;
+    flex-direction: column;
+    gap: 10px;
+}
