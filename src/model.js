@@ -1,5 +1,6 @@
 class Task{
-    constructor(title, dueDate, description = "", priority = "p4", status ="to do"){
+    constructor(projKey, title, dueDate, description = "", priority = "p4", status ="to do"){
+        this.projKey = projKey;
         this.title = title; 
         this.dueDate = dueDate; //in JavaScript Date object
         this.description = description;
@@ -11,11 +12,15 @@ class Task{
 class Project{
     constructor(title){
         this.title = title;
-        this.taskList = [];
+        this.taskList = {
+            "to-do": [],
+            "doing": [],
+            "done": []
+        }
     }
 
     addTask(task){
-        this.taskList.push(task);
+        this.taskList["to-do"].push(task);
     }
 }
 
