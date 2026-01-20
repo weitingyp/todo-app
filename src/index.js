@@ -17,7 +17,7 @@ if (!localStorage.getItem("boardDB")){
     localStorage.setItem("boardDB", JSON.stringify([new Project("Task List")]));
 }
 
-// LOAD AND DISPLAY PROJECTS
+// load and display projects
 const projList = document.querySelector("#proj-list");
 const initBoardDB = JSON.parse(localStorage.getItem("boardDB"));
 for (const proj of initBoardDB){
