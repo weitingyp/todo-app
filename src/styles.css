@@ -72,7 +72,7 @@ table {
     grid-area: nav;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr auto;
+    grid-template-rows: auto 1fr auto auto;
 }
 
 #task-container{
@@ -135,13 +135,16 @@ h2, h3{
     margin: 0;
 }
 
-#add-proj-btn{
+#add-proj-btn
+, #add-task-btn{
     border: 1px solid black;
     padding: 5px;
-    margin: 0;
+    margin: 5px 0px;
 }
 
-#add-proj-btn:hover, .nav-proj-title:hover{
+#add-proj-btn:hover
+, #add-task-btn:hover
+, .nav-proj-title:hover{
     text-decoration: underline;
 }
 
