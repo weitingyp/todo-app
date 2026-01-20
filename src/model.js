@@ -19,4 +19,12 @@ class Project{
     }
 }
 
-export {Task, Project};
+class Db{
+    static addProject(proj){
+        const currDB = JSON.parse(localStorage.getItem("boardDB"));
+        currDB.push(proj);
+        localStorage.setItem("boardDB", JSON.stringify(currDB));
+    }
+}
+
+export {Task, Project, Db};
