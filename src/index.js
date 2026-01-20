@@ -15,7 +15,14 @@ document.querySelector("#to-do").appendChild(card.getNode());
 // INSTANTIATE BOARD WITH PROJECT LIST
 // if (!localStorage.getItem("boardDB")){
     localStorage.setItem("boardDB", JSON.stringify({}));
-    Db.addProject(new Project("My To-Do List"));
+    const defaultTask1 = new Task("Buy groceries", Date.now(), "Fish, eggs, milk");
+    const defaultTask2 = new Task("Read my book", Date.now());
+    const defaultTask3 = new Task("Journal", Date.now());
+    const defaultProj = new Project("My To-Do List");
+    for (const task in [defaultTask1, defaultTask2, defaultTask3]){
+        defaultProj.addTask(task);
+    }
+    Db.addProject(defaultProj);
 // }
 
 // load and display projects
