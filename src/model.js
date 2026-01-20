@@ -12,6 +12,10 @@ class Task{
         this.priority = priority;
         this.status = status;
     }
+
+    updateTaskStatus(newStatus){
+        this.status = newStatus;
+    }
 }
 
 class Project{
@@ -36,6 +40,15 @@ class Db{
         const projKey = proj.title.toLowerCase().split(' ').join('_');
         currDB[projKey] = proj;
         localStorage.setItem("boardDB", JSON.stringify(currDB));
+    }
+
+    static updateProjTaskList(task, newStatus){
+        const currDB = JSON.parse(localStorage.getItem("boardDB"));
+        const oldStatus = task.status;
+        const projKey = task.projKey;
+        currDB[projKey].taskList[oldStatus].delete(task.id);
+        task.updateTaskStatus(newStatus);
+        currDB[projKey].taskList[newStatus][task.id] = task;
     }
 }
 
