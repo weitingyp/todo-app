@@ -76,4 +76,7 @@ createProjForm.addEventListener('submit', function(e) {
 
 // CREATE A NEW TASK
 document.querySelector("body").appendChild(taskDialog);
-taskDialog.showModal();
+const createTaskBtn = document.querySelector("#add-task-btn");
+createTaskBtn.addEventListener('click', ()=>{
+    taskDialog.showModal();
+});
