@@ -29,7 +29,9 @@ function renderProjTitle(proj){
     projList.appendChild(projTitle);
 }
 
+let activeProj = null;
 for (const proj in initBoardDB){
+    if (!activeProj) activeProj = initBoardDB[proj];
     renderProjTitle(initBoardDB[proj]);
 }
 
