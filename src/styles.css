@@ -119,13 +119,28 @@ h2, h3{
     text-align: left;
 }
 
+#proj-list{
+    list-style-type: disc;
+    margin: 10px 0px;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.nav-proj-title{
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+}
+
 #add-proj-btn{
     border: 1px solid black;
     padding: 5px;
     margin: 0;
-    background-color: transparent;
 }
 
-#add-proj-btn:hover{
+#add-proj-btn:hover, .nav-proj-title:hover{
     text-decoration: underline;
 }
