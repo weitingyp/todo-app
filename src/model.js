@@ -22,7 +22,8 @@ class Project{
 class Db{
     static addProject(proj){
         const currDB = JSON.parse(localStorage.getItem("boardDB"));
-        currDB.push(proj);
+        const projKey = proj.title.toLowerCase().split(' ').join('_');
+        currDB[projKey] = proj;
         localStorage.setItem("boardDB", JSON.stringify(currDB));
     }
 }

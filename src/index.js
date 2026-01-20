@@ -13,9 +13,10 @@ console.log(card.getNode());
 document.querySelector("#to-do").appendChild(card.getNode());
 
 // INSTANTIATE BOARD WITH PROJECT LIST
-if (!localStorage.getItem("boardDB")){
-    localStorage.setItem("boardDB", JSON.stringify([new Project("Task List")]));
-}
+// if (!localStorage.getItem("boardDB")){
+    localStorage.setItem("boardDB", JSON.stringify({}));
+    Db.addProject(new Project("My To-Do List"));
+// }
 
 // load and display projects
 const projList = document.querySelector("#proj-list");
@@ -28,8 +29,8 @@ function renderProjTitle(proj){
     projList.appendChild(projTitle);
 }
 
-for (const proj of initBoardDB){
-    renderProjTitle(proj);
+for (const proj in initBoardDB){
+    renderProjTitle(initBoardDB[proj]);
 }
 
 // CREATE A NEW PROJECT
