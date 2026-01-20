@@ -48,4 +48,11 @@ projectDialog.innerHTML = `
     </form>
 `;
 
-export {TaskCard, projectDialog};
+// Render a project's tasks
+const taskColumns = {
+    "to-do": document.querySelector("#to-do"),
+    "doing": document.querySelector("#doing"),
+    "done": document.querySelector("#done")
+}
+
+export {TaskCard, projectDialog, taskColumns};

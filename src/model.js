@@ -21,24 +21,24 @@ class Task{
 class Project{
     constructor(title){
         this.title = title;
+        this.projKey = title.toLowerCase().split(' ').join('_');
         this.taskList = {
-            "to-do": [],
-            "doing": [],
-            "done": []
+            "to-do": {},
+            "doing": {},
+            "done": {}
         }
     }
 
     addTask(task){
         const id = task.id;
-        this.taskList["to-do"].push({ id : task});
+        this.taskList["to-do"][id] = task;
     }
 }
 
 class Db{
     static addProject(proj){
         const currDB = JSON.parse(localStorage.getItem("boardDB"));
-        const projKey = proj.title.toLowerCase().split(' ').join('_');
-        currDB[projKey] = proj;
+        currDB[proj.projKey] = proj;
         localStorage.setItem("boardDB", JSON.stringify(currDB));
     }
 
