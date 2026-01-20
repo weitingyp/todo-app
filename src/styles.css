@@ -87,7 +87,29 @@ h1{
     font-size: 2rem;
 }
 
-h2, .task-column{
+h2, h3{
     font-weight: bold;
     text-decoration: underline;
+}
+
+.task-card{
+    padding: 5px;
+    margin: 10px 0px;
+    border: 1px solid black;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(3,max(50px, auto));
+    grid-row-gap: 10px;
+}
+
+.task-title{
+    text-transform: uppercase;
+}
+
+.task-description{
+    text-transform: lowercase;
+}
+
+.task-due-date{
+    text-align: left;
 }
