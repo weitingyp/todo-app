@@ -74,11 +74,13 @@ table {
 
 #task-container{
     grid-area: task-container;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     justify-content: space-around;
 }
 
 .task-column{
+    margin: 0px 10px;
     display: flex;
     flex-direction: column;
 }
