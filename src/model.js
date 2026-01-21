@@ -42,6 +42,15 @@ class Db{
         localStorage.setItem("boardDB", JSON.stringify(currDB));
     }
 
+    static addTask(projKey, task){
+        const currDB = JSON.parse(localStorage.getItem("boardDB"));
+        let updatedProj = currDB[projKey];
+        updatedProj = new Project (updatedProj.projKey, updatedProj.title, updatedProj.dueDate, updatedProj.description, updatedProj.priority, updatedProj.status);
+        updatedProj.addTask(task);
+        currDB[projKey] = updatedProj;
+        localStorage.setItem("boardDB", JSON.stringify(currDB));
+    }
+
     static updateProjTaskList(task, newStatus){
         const currDB = JSON.parse(localStorage.getItem("boardDB"));
         const oldStatus = task.status;

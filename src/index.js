@@ -80,3 +80,24 @@ const createTaskBtn = document.querySelector("#add-task-btn");
 createTaskBtn.addEventListener('click', ()=>{
     taskDialog.showModal();
 });
+
+// process form data
+const createTaskForm = document.querySelector("#create-task-form");
+
+function createTask(projKey, title, dueDate, description = "", priority = "p4", status = "to do"){
+    const task = new Task(projKey, title, dueDate, description = "", priority = "p4", status = "to do");
+    Db.addTask(projKey, task);
+    renderProjTasks(JSON.parse(localStorage.getItem("boardDB"))[projKey]);
+}
+
+createTaskForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const formData = new FormData(this);
+    createTask(activeProjKey
+        , formData.get("form-task-title")
+        , formData.get("form-task-duedate")
+        , formData.get("form-task-desc")
+        , formData.get("form-task-status"));
+    this.reset();
+    taskDialog.close();
+})
