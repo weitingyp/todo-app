@@ -71,9 +71,9 @@ taskDialog.innerHTML = `
 
 // Render a project's tasks
 const taskColumns = {
-    "to-do": document.querySelector("#to-do"),
-    "doing": document.querySelector("#doing"),
-    "done": document.querySelector("#done")
+    "to-do": document.querySelector("#to-do-list"),
+    "doing": document.querySelector("#doing-list"),
+    "done": document.querySelector("#done-list")
 }
 
 export {TaskCard, projectDialog, taskDialog, taskColumns};

@@ -16,6 +16,9 @@ import "./styles.css";
     }
     Db.addProject(defaultProj);
 
+    const secondProj = new Project("Second List");
+    Db.addProject(secondProj);
+
 // }
 
 // load and display projects
@@ -27,6 +30,10 @@ function renderProjTitle(proj){
     projTitle.className = "nav-proj-title";
     projTitle.innerText = proj.title;
     projList.appendChild(projTitle);
+
+    projTitle.addEventListener("click", function(event){
+        renderProjTasks(proj);
+    })
 }
 
 let activeProj = null;
@@ -39,6 +46,7 @@ for (const proj in initBoardDB){
 
 function renderProjTasks(proj){
     for (const list of ["to-do", "doing", "done"]){
+        taskColumns[list].innerHTML = "";
         for (const taskId in proj.taskList[list]){
             taskColumns[list].appendChild(new TaskCard(proj.taskList[list][taskId]).getNode());
         }
