@@ -1,5 +1,5 @@
 import { Task, Project, Db } from "./model.js";
-import { TaskCard, projectDialog, taskDialog, taskColumns } from "./view.js";
+import { TaskCard, setTaskSelected, projectDialog, taskDialog, taskColumns } from "./view.js";
 import "./styles.css";
 
 // INSTANTIATE BOARD WITH PROJECT LIST
@@ -54,6 +54,7 @@ function renderProjTasks(proj){
 
     document.querySelectorAll(".task-status").forEach(
         selector => {
+            setTaskSelected(selector, selector.getAttribute("data-old-status"));
             selector.addEventListener("change", function(event){
                 const newStatus = this.value;
                 const oldStatus = this.getAttribute("data-old-status")
@@ -61,6 +62,7 @@ function renderProjTasks(proj){
                 Db.updateProjTaskList(activeProjKey, taskId, oldStatus, newStatus);
                 this.setAttribute("data-old-status", newStatus);
                 renderProjTasks(Db.getProj(activeProjKey));
+                setTaskSelected(selector, newStatus);
             })
         }
     );

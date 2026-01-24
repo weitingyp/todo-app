@@ -35,6 +35,15 @@ class TaskCard{
     }
 }
 
+function setTaskSelected(selector, selectedVal){
+    const optionList = Array.from(selector.children);
+    for (const option of optionList){
+        if (option.value === selectedVal){
+            option.selected = true;
+        }
+    }
+}
+
 // Create dialog for creating a new project
 const projectDialog = document.createElement("dialog");
 projectDialog.innerHTML = `
@@ -73,4 +82,4 @@ const taskColumns = {
     "done": document.querySelector("#done-list")
 }
 
-export {TaskCard, projectDialog, taskDialog, taskColumns};
+export {TaskCard, setTaskSelected, projectDialog, taskDialog, taskColumns};
