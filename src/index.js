@@ -51,6 +51,19 @@ function renderProjTasks(proj){
             taskColumns[list].appendChild(new TaskCard(proj.taskList[list][taskId]).getNode());
         }
     }
+
+    document.querySelectorAll(".task-status").forEach(
+        selector => {
+            selector.addEventListener("change", function(event){
+                const newStatus = this.value;
+                const oldStatus = this.getAttribute("data-old-status")
+                const taskId = this.getAttribute("data-task-id");
+                Db.updateProjTaskList(activeProjKey, taskId, oldStatus, newStatus);
+                this.setAttribute("data-old-status", newStatus);
+                renderProjTasks(Db.getProj(activeProjKey));
+            })
+        }
+    );
 }
 
 renderProjTasks(activeProj);
@@ -109,3 +122,5 @@ createTaskForm.addEventListener('submit', function(e) {
     this.reset();
     taskDialog.close();
 })
+
+// UPDATE

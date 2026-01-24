@@ -3,7 +3,7 @@ function generateUniqueId() {
 }
 
 class Task{
-    constructor(projKey, title, dueDate, description = "", priority = "p4", status ="to do"){
+    constructor(projKey, title, dueDate, description = "", priority = "p4", status ="to-do"){
         this.id = generateUniqueId();
         this.projKey = projKey;
         this.title = title; 
@@ -51,13 +51,18 @@ class Db{
         localStorage.setItem("boardDB", JSON.stringify(currDB));
     }
 
-    static updateProjTaskList(task, newStatus){
+    static updateProjTaskList(activeProjKey, taskId, oldStatus, newStatus){
         const currDB = JSON.parse(localStorage.getItem("boardDB"));
-        const oldStatus = task.status;
-        const projKey = task.projKey;
-        currDB[projKey].taskList[oldStatus].delete(task.id);
-        task.updateTaskStatus(newStatus);
-        currDB[projKey].taskList[newStatus][task.id] = task;
+        const task = currDB[activeProjKey].taskList[oldStatus][taskId];
+        delete currDB[activeProjKey].taskList[oldStatus][taskId];
+        task.status = newStatus;
+        currDB[activeProjKey].taskList[newStatus][taskId] = task;
+        localStorage.setItem("boardDB", JSON.stringify(currDB));
+    }
+
+    static getProj(projKey){
+        const currDB = JSON.parse(localStorage.getItem("boardDB"));
+        return currDB[projKey];
     }
 }
 

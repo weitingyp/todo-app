@@ -16,6 +16,8 @@ class TaskCard{
         this.description.innerText = task.description;
 
         this.status = document.createElement("select");
+        this.status.setAttribute("data-task-id", task.id);
+        this.status.setAttribute("data-old-status", task.status);
         this.status.className = "task-status";
         this.status.innerHTML = `
             <option value="to-do">to do</option>
@@ -26,11 +28,6 @@ class TaskCard{
         for (const child of [this.title, this.dueDate, this.description, this.status]){
             this.card.appendChild(child);
         }
-
-        this.status.addEventListener("change", function(event){
-            const newStatus = this.status.value;
-            task.status = newStatus;
-        });
     }
 
     getNode(){
