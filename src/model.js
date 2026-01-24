@@ -19,14 +19,14 @@ class Task{
 }
 
 class Project{
-    constructor(title){
-        this.title = title;
-        this.projKey = title.toLowerCase().split(' ').join('_');
-        this.taskList = {
+    constructor(title, taskList = {
             "to-do": {},
             "doing": {},
             "done": {}
-        }
+        }){
+        this.title = title;
+        this.projKey = title.toLowerCase().split(' ').join('_');
+        this.taskList = taskList;
     }
 
     addTask(task){
@@ -45,7 +45,7 @@ class Db{
     static addTask(projKey, task){
         const currDB = JSON.parse(localStorage.getItem("boardDB"));
         let updatedProj = currDB[projKey];
-        updatedProj = new Project (updatedProj.projKey, updatedProj.title, updatedProj.dueDate, updatedProj.description, updatedProj.priority, updatedProj.status);
+        updatedProj = new Project (updatedProj.title, updatedProj.taskList);
         updatedProj.addTask(task);
         currDB[projKey] = updatedProj;
         localStorage.setItem("boardDB", JSON.stringify(currDB));

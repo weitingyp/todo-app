@@ -107,8 +107,8 @@ createTaskBtn.addEventListener('click', ()=>{
 // process form data
 const createTaskForm = document.querySelector("#create-task-form");
 
-function createTask(projKey, title, dueDate, description = "", priority = "p4", status = "to do"){
-    const task = new Task(projKey, title, dueDate, description = "", priority = "p4", status = "to do");
+function createTask(projKey, title, dueDate, description = "", priority = "p4", status = "to-do"){
+    const task = new Task(projKey, title, dueDate, description = "", priority = "p4", status = "to-do");
     Db.addTask(projKey, task);
     renderProjTasks(JSON.parse(localStorage.getItem("boardDB"))[projKey]);
 }
